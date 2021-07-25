@@ -1,6 +1,8 @@
 # Introduction to Development
 
+- What questions do you have already?
 ## Lecture
+
 
 ## Learning Objectives
 
