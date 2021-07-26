@@ -1,0 +1,65 @@
+/* *{
+  outline: dashed black;
+} */
+
+
+h1 {
+  font-size: 50px;
+  text-shadow: 2px 2px rgb(145, 127, 127);
+  color: rgb(110, 216, 142);
+  background-color: tomato;
+  border-radius: 15px;
+  padding: 10px;
+  float: left;
+}
+
+body{
+  width:960px;
+  margin: 0 auto;
+  background-color: rgb(216, 212, 212);
+
+
+}
+main{
+ background-color: honeydew;
+ clear: both;
+}
+header{
+height: 250px;
+background-color: lavenderblush;
+}
+
+nav li{
+  list-style-type: none;
+  font-size: 20px;
+  padding: 30px;
+  margin-left: 150px;
+}
+a{
+  text-decoration: none;
+}
+
+img { 
+  height: 350px;
+  width: 500px;
+  margin-left: 100px;
+  
+}
+
+article{
+  width: 60%; 
+
+}
+aside {
+height: 400px;
+width: 20%;
+background-color: turquoise;
+float: right;
+}
+
+
+footer {
+  background-color: whitesmoke;
+  height: 250px;
+  clear: both;
+}
