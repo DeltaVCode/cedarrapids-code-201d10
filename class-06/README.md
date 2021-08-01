@@ -1,6 +1,7 @@
 # The DOM, Domain Modeling, and Introduction to Objects
 
-<a id="top"></a>
+<a id="top">
+</a>
 
 ## Lecture
 
