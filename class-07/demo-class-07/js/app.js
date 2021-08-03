@@ -1,85 +1,173 @@
 'use strict';
-console.log('the app js file is connected');
+console.log('app js file is connected.');
 
+// Problem Domain: the Cedar Rapids Kitten Rescue has tons of kittens who need good homes. One of the best ways to reach prospective adoptive homes is to have profiles for each kitten available on a website. There are hundreds of kittens, though, and only a few volunteers; it's too time-consuming to hand-code each kitten's profile on their website. They need a better way.
 
-// Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-// Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
-// Store the results for each location in a separate array… perhaps as a property of the object representing that location
-// Display the values of each array as unordered lists in the browser
-// Calculating the sum of these hourly totals; your output for each location should look like this:
+//Each Kitten's profile should have:
+// Name
+// Breed
+// - random age assigned
+// a list of what they like.
+// an image
+// is good with kids
+// is good with dogs
+// is good with other animals
 
+// let petOne = {
+//   name: 'Tiger',
+//   breed: 'Tabby',
+//   imageName: 'tommyBob',
+//   interests: ['Rainy Days', 'Running', 'Yarn'],
+//   isGoodWithKids: true,
+//   isGoodWithDogs:  true,
+//   isGoodWithCats: true,
+//   setAge: function() {
+//     this.age = randomAge(3,12) + ' Months old.';
+//   }
+// };
 
-// Location	Min / Cust	Max / Cust	Avg Cookie / Sale
-
-// Tokyo	3	24	1.2
-// Dubai	11	38	3.7
-// Paris	20	38	2.3
-// Lima	2	16	4.6
-//two things 1 allows us the right number of iterations in our for loop 
-const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
-
-
-let storeOne = {
-  //set up of keys and values given to us.
-  locationName: 'Seattle',
-  minCustomerPerHour: 23,
-  maxCustomerPerHour: 65,
-  avgCookiesPerSale: 6.3,
-  //needed these to store information 
-  customersEachHour: [],
-  cookiesEachHour: [],
-  totalDailyCookies: 0,
-  //calculate customers to store in an array
-  calcCustomersEachHour: function(){
-    for(let i = 0; i < hours.length; i++){
-      this.customersEachHour.push(random(this.minCustomerPerHour, this.maxCustomerPerHour));
-    }
-  },
-  //calculate our cookies and call the customer each hour function
-  calcCookiesEachHour: function(){
-    this.calcCustomersEachHour();
-    for (let i = 0; i < hours.length; i++){
-      let oneHour = Math.ceil(this.customersEachHour[i] * this.avgCookiesPerSale);
-      this.cookiesEachHour.push(oneHour);
-      this.totalDailyCookies = this.totalDailyCookies + oneHour;
-    }
-  },
-  //we have the render function that calls the calc cookie function which calls the calc customers function
-  render(){
-    this.calcCookiesEachHour();
-    const unorderedList = document.getElementById('seattle');
-    for(let i = 0; i < hours.length; i++){
-      //here we get cookies each hour
-      let listItem = document.createElement('li');
-      listItem.textContent = hours[i] + ': ' + this.cookiesEachHour[i] + ' cookies';
-      //they go to the page
-      unorderedList.appendChild(listItem);
-    }//closes for loop
-    //lastly we get total cookies, base on calcs happening above.
-    let listItem = document.createElement('li');
-    listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
-    unorderedList.appendChild(listItem);
-  }
-};//closes object literal storeOne
-
-
-
-
-
-
-
-//runs our random number in our objects
-function random(minCust, maxCust){
-  return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
+function Pet(name, breed, imageName, interests, isGoodWithKids, isGoodWithDogs, isGoodWithCats){
+  this.name = name;
+  this.breed = breed;
+  this.imageName = imageName;
+  this.interests = interests;
+  this.isGoodWithKids = isGoodWithKids;
+  this.isGoodWithDogs = isGoodWithDogs;
+  this.isGoodWithCats = isGoodWithCats;
 }
 
+Pet.prototype.setAge = function(){
+  this.age = randomAge(3, 12) + ' months old.';
+};
 
-const allStores = [storeOne];
+function randomAge(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-//IIFE
-(function renderAllStores(){
-  for(let i = 0; i < allStores.length; i++){
-    allStores[i].render();
+//this is pulling from the interests array.
+Pet.prototype.getInterests = function(){
+  let randomArrayIndex = Math.floor(Math.random() * this.interests.length);
+  return this.interests[randomArrayIndex];
+};
+
+
+Pet.prototype.render = function(){
+  //Grab the Parent Element
+  //Create child elements article h2 p ul li and interests and image
+  let parentElement = document.getElementById('kittenProfiles');
+  console.log(parentElement);
+  let article = document.createElement('article');
+  parentElement.appendChild(article);
+  //h2
+  let h2 = document.createElement('h2');
+  h2.textContent = this.name;
+  article.appendChild(h2);
+  //paragraph
+  //  <p></p>
+  let petPara = document.createElement('p');
+  //template literals use the back ticks and the $ to mix stings and js stuff.
+  petPara.textContent = `${this.name} is adorable, and is ${this.age} months old.`;
+  article.appendChild(petPara);
+
+
+  //pets interests
+  let ul = document.createElement('ul');
+  article.appendChild(ul);
+
+  //fill up ul with list items
+  for(let i = 0; i < this.interests.length; i++){
+    let li = document.createElement('li');
+    li.textContent = this.interests[i];
+    ul.appendChild(li);
   }
-})();
+
+  let img = document.createElement('img');
+  img.setAttribute('src', 'images/' + this.imageName + '.jpeg');
+  img.setAttribute('alt', 'Adopt ' + this.name + 'NOW!, no TODAY!');
+  article.appendChild(img);
+
+
+
+  //create table for pets
+  let petTable = document.getElementById('adoptPets-holder');
+  let petRow = document.createElement('tr');
+  //create element
+  let nameCell = document.createElement('td');
+  nameCell.textContent = this.name;
+  //append nameCell to row
+  petRow.appendChild(nameCell);
+  //breedbreed
+  let breedCell = document.createElement('td');
+  breedCell.textContent = this.breed;
+  petRow.appendChild(breedCell);
+  //ageCell
+  let ageCell = document.createElement('td');
+  ageCell.textContent = this.age;
+  petRow.appendChild(ageCell);
+  //interests
+  let interestsCell = document.createElement('td');
+  interestsCell.textContent = this.interests;
+  petRow.appendChild(interestsCell);
+
+  petTable.appendChild(petRow);
+
+
+
+
+};//closes the render prototype function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let firstPet = new Pet('lion-O', 'big cat', 'jumper', ['chewy toys', 'chase lights', 'needy', 'plays keep away'],true, true, true);
+firstPet.setAge();
+firstPet.getInterests();
+
+
+let adoptPet = [firstPet];
+
+
+for(let i = 0; i < adoptPet.length; i++){
+  console.log(adoptPet[i]);
+  adoptPet[i].render();
+}
