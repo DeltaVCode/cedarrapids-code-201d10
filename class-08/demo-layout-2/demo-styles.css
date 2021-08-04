@@ -1,0 +1,65 @@
+.parent {
+  position: relative;
+ /* position: absolute; */
+ height: 200vh;
+ }
+ 
+ .child-one {
+ /* position: absolute; */
+ /* top: 10; */
+ /*   position: fixed; */
+   position: sticky;
+ top: 0;
+ }
+ 
+ .child-two {
+ 
+ }
+ 
+ .child-three {
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ .parent {
+   padding: 5px;
+   background-color: #00AAFF;
+ }
+ 
+ .child {
+   padding: 5px;
+ }
+ 
+ .child-one {
+   background-color: rgb(116, 255, 116);
+ }
+ 
+ .child-two {
+   background-color: rgb(248, 117, 117);
+ }
+ 
+ .child-three {
+   background-color: rgb(255, 116, 232);
+ }
