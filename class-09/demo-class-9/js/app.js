@@ -78,44 +78,6 @@ Pet.prototype.render = function(){
   petTable.appendChild(petRow);
 };//closes the render prototype function
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let firstPet = new Pet('lion-O', 'big cat', 'jumper', ['chewy toys', 'chase lights', 'needy', 'plays keep away'],true, true, true);
 firstPet.setAge();
 firstPet.getInterests();
@@ -170,12 +132,7 @@ function handleFormSubmitted(event){
   let form = document.getElementById('new-pets');
   form.reset();
 
-
-
 }
-
-
-
 
 //Set up event listener to watch our form for submission
 let formElement = document.getElementById('new-pets');
