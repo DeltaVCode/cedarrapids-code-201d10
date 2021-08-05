@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Week Two</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- <link rel="stylesheet" href="css/reset.css"> -->
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <header>
+         <h1>Adopt our Kittens or Cats now.</h1>
+      </header>
+      <main>
+         <h2>Here are the pets for adoption.</h2>
+         <section id="kittenProfiles">
+            <!-- Generate content from js pages the app.js -->
+            <!-- <article>
+               <h2></h2>
+               <p></p>
+               <ul>
+                 <li></li>
+                 <li></li>
+               </ul>
+               <img />
+               </article> -->
+         </section>
+         <table id="adoptPets-holder" class="adoptPetDiv">
+            <!-- <table>
+               <thead>
+                 <tr>
+                   <th>6am</th>
+                 </tr>
+               </thead>
+               <tbody id="tableRender">
+                 <tr>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+               </tbody>
+               <tfoot id="footerTotals">   
+               </tfoot>
+               </table> -->
+         </table>
+      </main>
+      <form id="new-pets">
+        <fieldset>
+        <legend>New animal to the shelter!</legend> 
+        <label for="name">Pet Name:</label>
+        <input id="name" type="text" required/>
+        <label for="breed">Pet Breed:</label>
+        <input id="breed" type="text" required/>
+        <label for="imageName">Enter Image Name:</label>
+        <input id="imageName" type="text" required/>
+        <label for="interests">Pet Interests:</label>
+        <input id="interests" type="text" required/>
+      </fieldset>
+      <fieldset>
+        <legend>Placement Information</legend>
+        <p>Can be placed with.</p>
+        <label>Good with Kids</label>
+        <input id="kids"  type="checkbox" name="isGoodWithKids" />
+        <label>Good with Dogs</label>
+        <input id="dogs"  type="checkbox" name="isGoodWithDogs" />
+        <label>Good with Cats</label>
+        <input id="cats"  type="checkbox" name="isGoodWithCats" />
+      </fieldset>
+      <button type="reset" value="Reset">Reset Form</button>
+      <button id="submit">Sumbit Form</button>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+      <footer>
+        <h2>Add the Pet Indormation for the pet you want to Adopt.</h2>
+      </footer>
+      <script src="js/app.js" ></script>
+   </body>
+</html>
